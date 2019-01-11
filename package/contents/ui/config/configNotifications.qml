@@ -31,19 +31,22 @@ Item {
 			title: "When server goes online"
 			visible: true
 			
-			anchors.left: parent.left
-			anchors.right: parent.right
+			Layout.fillWidth: true
 				
 			GridLayout {
 				columns: 2
+				anchors.fill: parent
 				
 				PlasmaComponents.Label {
+					id: notifyUpActionLabel
 					text: i18n("Action:")
+					Layout.preferredWidth: notifyUpCommandLabel.implicitWidth
 				}
 				
 				ComboBox {
 					id: notifyUpAction
 					model: ["Nothing", "System notification", "Command"]
+					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 20
 					onCurrentIndexChanged: {
 						updateData();
@@ -60,13 +63,14 @@ Item {
 				
 				PlasmaComponents.Label {
 					id: notifyUpCommandLabel
+					Layout.preferredWidth: notifyUpActionLabel.implicitWidth
 					text: i18n("Command:")
 					visible: false
 				}
 				
 				TextField {
 					id: notifyUpCommand
-					Layout.minimumWidth: parent.width
+					Layout.fillWidth: true
 					visible: false
 					onEditingFinished: updateData()
 				}
@@ -77,20 +81,24 @@ Item {
 			id: notificationDownGroup
 			title: "When server goes offline"
 			visible: true
+
+			Layout.fillWidth: true
 			
-			anchors.left: parent.left
-			anchors.right: parent.right
-				
 			GridLayout {
 				columns: 2
 				
+				anchors.fill: parent
+				
 				PlasmaComponents.Label {
+					id: notifyDownActionLabel
 					text: i18n("Action:")
+					Layout.preferredWidth: notifyDownCommandLabel.implicitWidth
 				}
 				
 				ComboBox {
 					id: notifyDownAction
 					model: ["Nothing", "System notification", "Command"]
+					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 20
 					onCurrentIndexChanged: {
 						updateData();
@@ -107,13 +115,14 @@ Item {
 				
 				PlasmaComponents.Label {
 					id: notifyDownCommandLabel
+					Layout.preferredWidth: notifyDownActionLabel.implicitWidth
 					text: i18n("Command:")
 					visible: false
 				}
 				
 				TextField {
 					id: notifyDownCommand
-					Layout.minimumWidth: parent.width
+					Layout.fillWidth: true
 					visible: false
 					onEditingFinished: updateData()
 				}
