@@ -118,9 +118,6 @@ Item {
 			}
 		};
 		
-		cfg_notificationUp = JSON.stringify(notificationUp);
-		
-		
 		var notificationDown = {
 			action: notifyDownAction.currentIndex,
 			extraOptions: {
@@ -128,6 +125,7 @@ Item {
 			}
 		};
 		
+		cfg_notificationUp = JSON.stringify(notificationUp);
 		cfg_notificationDown = JSON.stringify(notificationDown);
 	}
 }
