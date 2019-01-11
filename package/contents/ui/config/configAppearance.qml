@@ -2,7 +2,6 @@ import QtQuick 2.1
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
-import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Item {
 	id: configAppearance
@@ -15,7 +14,7 @@ Item {
 	GridLayout {
 		columns: 2
 		
-		PlasmaComponents.Label {
+		Label {
 			text: i18n("Font size:")
 		}
 		
@@ -27,7 +26,7 @@ Item {
 		}
 		
 		
-		PlasmaComponents.Label {
+		Label {
 			text: i18n("Online icon:")
 		}
 		
@@ -39,7 +38,7 @@ Item {
 		}
 		
 		
-		PlasmaComponents.Label {
+		Label {
 			text: i18n("Offline icon:")
 		}
 		

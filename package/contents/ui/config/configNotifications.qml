@@ -2,7 +2,6 @@ import QtQuick 2.1
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
-import org.kde.plasma.components 2.0 as PlasmaComponents
 
 Item {
 	id: configNotifications
@@ -37,7 +36,7 @@ Item {
 				columns: 2
 				anchors.fill: parent
 				
-				PlasmaComponents.Label {
+				Label {
 					id: notifyUpActionLabel
 					text: i18n("Action:")
 					Layout.preferredWidth: notifyUpCommandLabel.implicitWidth
@@ -51,7 +50,7 @@ Item {
 					onCurrentIndexChanged: updateData()
 				}
 				
-				PlasmaComponents.Label {
+				Label {
 					id: notifyUpCommandLabel
 					Layout.preferredWidth: notifyUpActionLabel.implicitWidth
 					text: i18n("Command:")
@@ -79,7 +78,7 @@ Item {
 				
 				anchors.fill: parent
 				
-				PlasmaComponents.Label {
+				Label {
 					id: notifyDownActionLabel
 					text: i18n("Action:")
 					Layout.preferredWidth: notifyDownCommandLabel.implicitWidth
@@ -93,7 +92,7 @@ Item {
 					onCurrentIndexChanged: updateData()
 				}
 				
-				PlasmaComponents.Label {
+				Label {
 					id: notifyDownCommandLabel
 					Layout.preferredWidth: notifyDownActionLabel.implicitWidth
 					text: i18n("Command:")

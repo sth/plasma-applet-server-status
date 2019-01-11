@@ -2,7 +2,6 @@ import QtQuick 2.1
 import QtQuick.Controls 1.2
 import QtQuick.Dialogs 1.2
 import QtQuick.Layouts 1.1
-import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import ".."
 
@@ -64,9 +63,9 @@ ColumnLayout {
 			Layout.fillWidth: false
 			Layout.alignment: Qt.AlignTop
 			
-			PlasmaComponents.Button {
+			Button {
 				text: "Add..."
-				iconSource: "list-add"
+				iconName: "list-add"
 
 				Layout.fillWidth: true
 				
@@ -75,9 +74,9 @@ ColumnLayout {
 				}
 			}
 			
-			PlasmaComponents.Button {
+			Button {
 				text: "Edit"
-				iconSource: "edit-entry"
+				iconName: "edit-entry"
 				enabled: serversTable.currentRow != -1
 
 				Layout.fillWidth: true
@@ -87,9 +86,9 @@ ColumnLayout {
 				}
 			}
 			
-			PlasmaComponents.Button {
+			Button {
 				text: "Remove"
-				iconSource: "list-remove"
+				iconName: "list-remove"
 				enabled: serversTable.currentRow != -1
 
 				Layout.fillWidth: true
@@ -103,9 +102,9 @@ ColumnLayout {
 				}
 			}
 			
-			PlasmaComponents.Button {
+			Button {
 				text: i18n("Move up")
-				iconSource: "go-up"
+				iconName: "go-up"
 				enabled: {
 					return serversTable.currentRow > 0
 				}
@@ -121,9 +120,9 @@ ColumnLayout {
 				}
 			}
 			
-			PlasmaComponents.Button {
+			Button {
 				text: i18n("Move down")
-				iconSource: "go-down"
+				iconName: "go-down"
 				enabled: {
 					return serversTable.currentRow != -1 && serversTable.currentRow < serversTable.model.count - 1;
 				}
@@ -173,7 +172,7 @@ ColumnLayout {
 			GridLayout {
 				columns: 2
 				
-				PlasmaComponents.Label {
+				Label {
 					text: "Name:"
 				}
 				
@@ -184,7 +183,7 @@ ColumnLayout {
 				}
 				
 				
-				PlasmaComponents.Label {
+				Label {
 					text: "Host name:"
 				}
 				
@@ -195,7 +194,7 @@ ColumnLayout {
 				}
 				
 				
-				PlasmaComponents.Label {
+				Label {
 					text: i18n("Refresh rate:")
 				}
 				
@@ -207,7 +206,7 @@ ColumnLayout {
 				}
 				
 				
-				PlasmaComponents.Label {
+				Label {
 					text: i18n("Check method:")
 				}
 				
@@ -225,7 +224,7 @@ ColumnLayout {
 				}
 				
 				
-				PlasmaComponents.Label {
+				Label {
 					text: ""
 				}
 				
@@ -248,7 +247,7 @@ ColumnLayout {
 					width: parent.width
 				}
 				
-				PlasmaComponents.Label {
+				Label {
 					anchors.top: serverCommand.bottom
 					width: parent.width
 					wrapMode: Text.WordWrap
