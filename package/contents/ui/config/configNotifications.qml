@@ -13,12 +13,10 @@ Item {
 	
 	Component.onCompleted: {
 		var notificationUp = JSON.parse(cfg_notificationUp);
+		var notificationDown = JSON.parse(cfg_notificationDown);
 		
 		notifyUpAction.currentIndex = notificationUp.action;
 		notifyUpCommand.text = notificationUp.extraOptions.command;
-		
-		
-		var notificationDown = JSON.parse(cfg_notificationDown);
 		
 		notifyDownAction.currentIndex = notificationDown.action;
 		notifyDownCommand.text = notificationDown.extraOptions.command;
