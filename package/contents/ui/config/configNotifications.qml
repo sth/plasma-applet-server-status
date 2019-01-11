@@ -48,30 +48,20 @@ Item {
 					model: ["Nothing", "System notification", "Command"]
 					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 20
-					onCurrentIndexChanged: {
-						updateData();
-						
-						if(currentIndex == 2) {
-							notifyUpCommandLabel.visible = true
-							notifyUpCommand.visible = true
-						} else {
-							notifyUpCommandLabel.visible = false
-							notifyUpCommand.visible = false
-						}
-					}
+					onCurrentIndexChanged: updateData()
 				}
 				
 				PlasmaComponents.Label {
 					id: notifyUpCommandLabel
 					Layout.preferredWidth: notifyUpActionLabel.implicitWidth
 					text: i18n("Command:")
-					visible: false
+					visible: notifyUpAction.currentIndex == 2
 				}
 				
 				TextField {
 					id: notifyUpCommand
 					Layout.fillWidth: true
-					visible: false
+					visible: notifyUpAction.currentIndex == 2
 					onEditingFinished: updateData()
 				}
 			}
@@ -100,30 +90,20 @@ Item {
 					model: ["Nothing", "System notification", "Command"]
 					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 20
-					onCurrentIndexChanged: {
-						updateData();
-						
-						if(currentIndex == 2) {
-							notifyDownCommandLabel.visible = true
-							notifyDownCommand.visible = true
-						} else {
-							notifyDownCommandLabel.visible = false
-							notifyDownCommand.visible = false
-						}
-					}
+					onCurrentIndexChanged: updateData()
 				}
 				
 				PlasmaComponents.Label {
 					id: notifyDownCommandLabel
 					Layout.preferredWidth: notifyDownActionLabel.implicitWidth
 					text: i18n("Command:")
-					visible: false
+					visible: notifyDownAction.currentIndex == 2
 				}
 				
 				TextField {
 					id: notifyDownCommand
 					Layout.fillWidth: true
-					visible: false
+					visible: notifyDownAction.currentIndex == 2
 					onEditingFinished: updateData()
 				}
 			}
