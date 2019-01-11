@@ -64,11 +64,6 @@ Item {
 			onDoubleClicked: {
 				editServer();
 			}
-			
-			onActivated: {
-				moveUp.enabled = row > 0;
-				moveDown.enabled = row < serversTable.model.count - 1;
-			}
 		}
 		
 		ColumnLayout {
@@ -88,6 +83,7 @@ Item {
 			PlasmaComponents.Button {
 				text: "Edit"
 				iconSource: "edit-entry"
+				enabled: serversTable.currentRow != -1
 				
 				onClicked: {
 					editServer();
@@ -97,6 +93,7 @@ Item {
 			PlasmaComponents.Button {
 				text: "Remove"
 				iconSource: "list-remove"
+				enabled: serversTable.currentRow != -1
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
@@ -108,10 +105,11 @@ Item {
 			}
 			
 			PlasmaComponents.Button {
-				id: moveUp
 				text: i18n("Move up")
 				iconSource: "go-up"
-				enabled: false
+				enabled: {
+					return serversTable.currentRow > 0
+				}
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
@@ -123,10 +121,11 @@ Item {
 			}
 			
 			PlasmaComponents.Button {
-				id: moveDown
 				text: i18n("Move down")
 				iconSource: "go-down"
-				enabled: false
+				enabled: {
+					return serversTable.currentRow != -1 && serversTable.currentRow < serversTable.model.count - 1;
+				}
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
