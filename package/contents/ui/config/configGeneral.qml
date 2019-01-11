@@ -6,9 +6,8 @@ import org.kde.plasma.components 2.0 as PlasmaComponents
 
 import ".."
 
-Item {
+ColumnLayout {
 	id: configGeneral
-	Layout.fillWidth: true
 	
 	property string cfg_servers: plasmoid.configuration.servers
 	
@@ -29,19 +28,12 @@ Item {
 	}
 
 	RowLayout {
-		anchors.fill: parent
-		
-		Layout.alignment: Qt.AlignTop | Qt.AlignRight
-		
 		TableView {
 			id: serversTable
 			model: serversModel
 			
-			anchors.top: parent.top
-			anchors.right: buttonsColumn.left
-			anchors.bottom: parent.bottom
-			anchors.left: parent.left
-			anchors.rightMargin: 10
+			Layout.fillWidth: true
+			Layout.fillHeight: true
 			
 			TableViewColumn {
 				role: "active"
@@ -69,11 +61,14 @@ Item {
 		ColumnLayout {
 			id: buttonsColumn
 			
-			anchors.top: parent.top
+			Layout.fillWidth: false
+			Layout.alignment: Qt.AlignTop
 			
 			PlasmaComponents.Button {
 				text: "Add..."
 				iconSource: "list-add"
+
+				Layout.fillWidth: true
 				
 				onClicked: {
 					addServer();
@@ -84,6 +79,8 @@ Item {
 				text: "Edit"
 				iconSource: "edit-entry"
 				enabled: serversTable.currentRow != -1
+
+				Layout.fillWidth: true
 				
 				onClicked: {
 					editServer();
@@ -94,6 +91,8 @@ Item {
 				text: "Remove"
 				iconSource: "list-remove"
 				enabled: serversTable.currentRow != -1
+
+				Layout.fillWidth: true
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
@@ -110,6 +109,8 @@ Item {
 				enabled: {
 					return serversTable.currentRow > 0
 				}
+
+				Layout.fillWidth: true
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
@@ -126,6 +127,8 @@ Item {
 				enabled: {
 					return serversTable.currentRow != -1 && serversTable.currentRow < serversTable.model.count - 1;
 				}
+
+				Layout.fillWidth: true
 				
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
@@ -176,6 +179,7 @@ Item {
 				
 				TextField {
 					id: serverName
+					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 40
 				}
 				
@@ -186,6 +190,7 @@ Item {
 				
 				TextField {
 					id: serverHostname
+					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 40
 				}
 				
@@ -209,6 +214,7 @@ Item {
 				ComboBox {
 					id: serverMethod
 					model: ["Ping", "PingV6", "HTTP 200 OK", "Command"]
+					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 15
 					onActivated: {
 						if(index == 3)
