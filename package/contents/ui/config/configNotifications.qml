@@ -70,7 +70,7 @@ Item {
 					id: notifyUpCommand
 					Layout.minimumWidth: parent.width
 					visible: false
-					onEditingFinished: updateData
+					onEditingFinished: updateData()
 				}
 			}
 		}
@@ -117,7 +117,7 @@ Item {
 					id: notifyDownCommand
 					Layout.minimumWidth: parent.width
 					visible: false
-					onEditingFinished: updateData
+					onEditingFinished: updateData()
 				}
 			}
 		}
