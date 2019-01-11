@@ -66,7 +66,7 @@ Item {
 			id: serversListView
 			anchors.fill: parent
 			model: serversModel
-			delegate: Row {
+			delegate: Item {
 				height: nameText.paintedHeight * 1.5
 				
 				PlasmaCore.IconItem {
