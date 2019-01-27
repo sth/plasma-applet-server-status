@@ -229,26 +229,27 @@ ColumnLayout {
 					id: serverActive
 					text: i18n("Active")
 				}
-			}
-			
-			GroupBox {
-				id: commandGroup
-				title: "Command"
-				visible: serverMethod.currentIndex == 3
-				
-				anchors.left: parent.left
-				anchors.right: parent.right
-					
-				TextField {
-					id: serverCommand
+
+
+				Label {
+					text: "Command:"
+					visible: serverMethod.currentIndex == 3
 					width: parent.width
 				}
 				
-				Label {
-					anchors.top: serverCommand.bottom
-					width: parent.width
-					wrapMode: Text.WordWrap
-					text: i18n("Use %hostname% to pass server's hostname as an argument or option to the executable.")
+				ColumnLayout {
+					visible: serverMethod.currentIndex == 3
+
+					TextField {
+						id: serverCommand
+						Layout.fillWidth: true
+						Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 40
+					}
+					Label {
+						Layout.fillWidth: true
+						wrapMode: Text.WordWrap
+						text: i18n("Use %hostname% to pass server's hostname as an argument or option to the executable.")
+					}
 				}
 			}
 		}
