@@ -169,8 +169,11 @@ ColumnLayout {
 		}
 
 		ColumnLayout {
+			anchors.fill: parent
+
 			GridLayout {
 				columns: 2
+				Layout.alignment: Qt.AlignTop
 				
 				Label {
 					text: "Name:"
