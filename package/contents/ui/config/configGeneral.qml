@@ -112,8 +112,8 @@ ColumnLayout {
 				Layout.fillWidth: true
 				
 				onClicked: {
-					if(serversTable.currentRow == -1) return;
-					
+					if(serversTable.currentRow < 1) return;
+
 					serversTable.model.move(serversTable.currentRow, serversTable.currentRow - 1, 1);
 					serversTable.selection.clear();
 					serversTable.selection.select(serversTable.currentRow - 1);
@@ -130,7 +130,7 @@ ColumnLayout {
 				Layout.fillWidth: true
 				
 				onClicked: {
-					if(serversTable.currentRow == -1) return;
+					if(serversTable.currentRow == -1 || serversTable.currentRow >= serversTable.model.count - 1) return;
 					
 					serversTable.model.move(serversTable.currentRow, serversTable.currentRow + 1, 1);
 					serversTable.selection.clear();
