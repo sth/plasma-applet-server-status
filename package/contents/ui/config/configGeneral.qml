@@ -215,12 +215,6 @@ ColumnLayout {
 					model: ["Ping", "PingV6", "HTTP 200 OK", "Command"]
 					Layout.fillWidth: true
 					Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 15
-					onActivated: {
-						if(index == 3)
-							commandGroup.visible = true
-						else
-							commandGroup.visible = false
-					}
 				}
 				
 				
@@ -237,7 +231,7 @@ ColumnLayout {
 			GroupBox {
 				id: commandGroup
 				title: "Command"
-				visible: false
+				visible: serverMethod.currentIndex == 3
 				
 				anchors.left: parent.left
 				anchors.right: parent.right
