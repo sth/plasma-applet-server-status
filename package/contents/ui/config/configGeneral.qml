@@ -10,12 +10,10 @@ ColumnLayout {
 	
 	property string cfg_servers: plasmoid.configuration.servers
 	
-	property int dialogMode: -1
-	
 	ServersModel {
 		id: serversModel
 	}
-	
+
 	Component.onCompleted: {
 		serversModel.clear();
 		
@@ -146,6 +144,8 @@ ColumnLayout {
 		visible: false
 		title: "Server"
 		standardButtons: StandardButton.Save | StandardButton.Cancel
+
+		property int serverIndex
 		
 		onAccepted: {
 			var itemObject = {
@@ -159,10 +159,10 @@ ColumnLayout {
 				}
 			};
 			
-			if(dialogMode == -1) {
+			if(serverIndex == -1) {
 				serversModel.append(itemObject);
 			} else {
-				serversModel.set(dialogMode, itemObject);
+				serversModel.set(serverIndex, itemObject);
 			}
 			
 			cfg_servers = JSON.stringify(getServersArray());
@@ -256,7 +256,7 @@ ColumnLayout {
 	}
 	
 	function addServer() {
-		dialogMode = -1;
+		serverDialog.serverIndex = -1;
 		
 		serverName.text = ""
 		serverHostname.text = ""
@@ -269,13 +269,14 @@ ColumnLayout {
 	}
 	
 	function editServer() {
-		dialogMode = serversTable.currentRow;
+		serverDialog.serverIndex = serversTable.currentRow;
 		
-		serverName.text = serversModel.get(dialogMode).name
-		serverHostname.text = serversModel.get(dialogMode).hostname
-		serverRefreshRate.value = serversModel.get(dialogMode).refreshRate
-		serverMethod.currentIndex = serversModel.get(dialogMode).method
-		serverActive.checked = serversModel.get(dialogMode).active
+		var server = serversModel.get(serversTable.currentRow)
+		serverName.text = server.name
+		serverHostname.text = server.hostname
+		serverRefreshRate.value = server.refreshRate
+		serverMethod.currentIndex = server.method
+		serverActive.checked = server.active
 		
 		serverDialog.visible = true;
 		serverName.focus = true;
