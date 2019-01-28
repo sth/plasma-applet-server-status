@@ -94,7 +94,10 @@ ColumnLayout {
 				onClicked: {
 					if(serversTable.currentRow == -1) return;
 					
-					serversTable.model.remove(serversTable.currentRow);
+					var row = serversTable.currentRow;
+					serversTable.currentRow = -1;
+					serversTable.selection.clear()
+					serversTable.model.remove(row);
 					
 					cfg_servers = JSON.stringify(getServersArray());
 				}
