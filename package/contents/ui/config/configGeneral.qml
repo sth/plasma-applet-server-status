@@ -266,6 +266,7 @@ ColumnLayout {
 		serverRefreshRate.value = 60
 		serverMethod.currentIndex = 0
 		serverActive.checked = true
+		serverCommand.text = ""
 		
 		serverDialog.visible = true;
 		serverName.focus = true;
@@ -280,6 +281,7 @@ ColumnLayout {
 		serverRefreshRate.value = server.refreshRate
 		serverMethod.currentIndex = server.method
 		serverActive.checked = server.active
+		serverCommand.text = server.extraOptions.command
 		
 		serverDialog.visible = true;
 		serverName.focus = true;
